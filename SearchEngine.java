@@ -9,7 +9,7 @@ class Handler implements URLHandler {
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
             return String.format("Stringlist: ", stringList);
-        } else if (url.getPath().equals("/update")) {
+        } else if (url.getPath().equals("/Stringlist")) {
             return String.format("Stringlist is now: ", stringList);
         } else {
             System.out.println("Path: " + url.getPath());
@@ -17,7 +17,8 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     stringList.add(parameters[1]);
-                    return String.format("Stringlist is now:" + stringList);
+                    return;
+                    //return String.format("Stringlist is now:" + stringList);
                 }
             }
             return "404 Not Found!";
